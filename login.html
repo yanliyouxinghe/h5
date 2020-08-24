@@ -14,21 +14,52 @@
 			</div>
 			<div class="login-nr">
 				<div class="login-nr-inp">
-					<input type="text" name="" id="" value="" placeholder="请输入用户名/手机号" />
+					<input type="text" name="user_name" id="user_name" value="" placeholder="请输入用户名/手机号" />
 				</div>
 				<div class="login-nr-inp">
-					<input type="text" name="" id="" value="" placeholder="请输入登录密码" />
+					<input type="password" name="user_pwd" id="user_pwd" value="" placeholder="请输入登录密码" />
 				</div>
 				<div class="login-nr-inp">
-					<input type="text" name="" id="" value="" placeholder="请输入验证码" />
-					<p class="yzm">1258</p>
+					<input type="text" name="code" id="code" value="" placeholder="请输入验证码" />
+					<p class="yzm">111</p>
 				</div>
 				<div class="wjmm"><a href="忘记密码.html">忘记密码</a></div>
 			</div>
 		</div>
 		<div class="login-nr-dl">
-			<input type="button" name="" id="" value="登录"  />
+			<input type="button" name="" id="login_bin" value="登录"  />
 		</div>
 		<div style="height: 4em;"></div>
 	</body>
 </html>
+<!--<script src=""></script>-->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	$(document).on('click','#login_bin',function (){
+			var user_name = $("#user_name").val();
+			var user_pwd = $("#user_pwd").val();
+			var code = $("#code").val();
+			// var codea = $(".yzm").val();
+    	var  codea  = parseInt(1000000*Math.random());
+
+				alert(codea);
+
+
+
+			$.ajax({
+				url : 'http://api.1910.com/login',
+				type : "post",
+				dataType : "json",
+				async : true,
+				data : {'user_name':user_name,'user_pwd':user_pwd},
+				success:function (){
+
+				}
+
+			});
+
+	});
+
+
+
+</script>
